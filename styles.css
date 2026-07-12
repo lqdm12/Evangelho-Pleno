@@ -1,0 +1,789 @@
+/* ==========================================================================
+   IGREJA EVANGELHO PLENO — Folha de estilo principal
+   Fase: ESTRUTURA. Textos marcados com [data-ph] são placeholders.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TOKENS
+   Paleta extraída da própria igreja: a parede é cor de cal, o letreiro é
+   âmbar, a campanha 2K26 é noite com brasa.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Cor */
+  --noite:      #0C0B0A;
+  --carvao:     #1A1613;
+  --grafite:    #23201C;
+  --cal:        #F4F0E9;
+  --areia:      #E6DFD3;
+  --linha:      #D6CCBD;
+  --neutro:     #7C7268;
+  --brasa:      #F1592A;
+  --brasa-esc:  #C2400F;
+  --ambar:      #E9A23B;
+
+  /* Tipografia */
+  --display: "Bodoni Moda", Georgia, serif;
+  --util:    "Oswald", "Arial Narrow", sans-serif;
+  --corpo:   "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Escala */
+  --t-xs:   0.75rem;
+  --t-sm:   0.875rem;
+  --t-base: 1rem;
+  --t-md:   1.125rem;
+  --t-lg:   1.375rem;
+  --t-xl:   clamp(1.75rem, 3vw, 2.5rem);
+  --t-2xl:  clamp(2.5rem, 6vw, 4.5rem);
+  --t-3xl:  clamp(3.5rem, 10vw, 8rem);
+
+  /* Ritmo */
+  --gap:     1.5rem;
+  --secao:   clamp(4.5rem, 9vw, 8rem);
+  --container: 1180px;
+  --raio:    2px;
+}
+
+/* --------------------------------------------------------------------------
+   2. BASE
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cal);
+  color: var(--grafite);
+  font-family: var(--corpo);
+  font-size: var(--t-base);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3 { margin: 0; font-weight: 400; }
+
+p { margin: 0 0 1em; }
+
+:focus-visible {
+  outline: 2px solid var(--brasa);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. UTILITÁRIOS DE LAYOUT
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.secao { padding-block: var(--secao); }
+
+.secao--noite {
+  background: var(--noite);
+  color: var(--cal);
+}
+
+.secao--areia { background: var(--areia); }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   4. TIPOGRAFIA DE COMPONENTE
+   -------------------------------------------------------------------------- */
+.sobrescrito {
+  font-family: var(--util);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brasa);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.sobrescrito::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  flex: none;
+}
+
+.titulo {
+  font-family: var(--display);
+  font-size: var(--t-2xl);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+.titulo--grande { font-size: var(--t-3xl); }
+
+.titulo em {
+  font-style: italic;
+  color: var(--brasa);
+}
+
+.subtitulo {
+  font-size: var(--t-md);
+  max-width: 56ch;
+  color: var(--neutro);
+}
+
+.secao--noite .subtitulo { color: #A79C90; }
+
+/* --------------------------------------------------------------------------
+   5. BOTÕES
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.6rem;
+  font-family: var(--util);
+  font-size: var(--t-sm);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: var(--raio);
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn--brasa {
+  background: var(--brasa);
+  color: #fff;
+}
+.btn--brasa:hover { background: var(--brasa-esc); }
+
+.btn--contorno {
+  background: transparent;
+  border-color: currentColor;
+  color: inherit;
+}
+/* Em fundo claro, o hover escurece. */
+.btn--contorno:hover {
+  background: var(--grafite);
+  border-color: var(--grafite);
+  color: var(--cal);
+}
+/* Em fundo escuro, o hover clareia. */
+.secao--noite .btn--contorno:hover,
+.heroi .btn--contorno:hover,
+.capa .btn--contorno:hover,
+.unidade .btn--contorno:hover,
+.seletor .btn--contorno:hover {
+  background: var(--cal);
+  border-color: var(--cal);
+  color: var(--noite);
+}
+
+.btn--escuro {
+  background: var(--grafite);
+  color: var(--cal);
+}
+.btn--escuro:hover { background: var(--noite); }
+
+/* --------------------------------------------------------------------------
+   6. ASTERISCO — elemento assinatura
+   Três congregações, uma igreja. O selo gira devagar, como o ano.
+   -------------------------------------------------------------------------- */
+.asterisco { display: block; }
+
+.asterisco--girando { animation: girar 34s linear infinite; }
+
+@keyframes girar { to { transform: rotate(360deg); } }
+
+.selo {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  flex: none;
+}
+.selo__texto { position: absolute; inset: 0; }
+.selo__miolo {
+  position: absolute;
+  inset: 31%;
+  color: var(--brasa);
+}
+
+/* --------------------------------------------------------------------------
+   7. CABEÇALHO
+   -------------------------------------------------------------------------- */
+.cabecalho {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  padding: 1rem clamp(1.25rem, 4vw, 2.5rem);
+  transition: background .3s ease, box-shadow .3s ease, padding .3s ease;
+}
+
+.cabecalho--fixo {
+  background: rgba(244, 240, 233, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--linha);
+  padding-block: 0.65rem;
+}
+
+.cabecalho__logo { margin-right: auto; }
+.cabecalho__logo img { height: 38px; width: auto; }
+.cabecalho__logo .logo-claro { display: block; }
+.cabecalho__logo .logo-escuro { display: none; }
+.cabecalho--fixo .logo-claro { display: none; }
+.cabecalho--fixo .logo-escuro { display: block; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.nav a {
+  font-family: var(--util);
+  font-size: var(--t-sm);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cal);
+  padding-block: 0.3rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color .18s ease, color .18s ease;
+}
+.cabecalho--fixo .nav a { color: var(--grafite); }
+.nav a:hover, .nav a[aria-current="page"] { border-bottom-color: var(--brasa); }
+
+.nav__cta { color: #fff !important; border-bottom: 0 !important; }
+.cabecalho--fixo .nav__cta { color: #fff !important; }
+
+/* Cabeçalho em páginas internas de fundo claro */
+.cabecalho--claro { background: var(--noite); }
+
+/* Menu mobile */
+.hamburguer {
+  display: none;
+  width: 44px; height: 44px;
+  background: none; border: 0; cursor: pointer;
+  padding: 10px;
+}
+.hamburguer span {
+  display: block; height: 2px; width: 100%;
+  background: var(--cal); margin-block: 5px;
+  transition: transform .25s ease, opacity .25s ease, background .25s ease;
+}
+.cabecalho--fixo .hamburguer span { background: var(--grafite); }
+.hamburguer[aria-expanded="true"] span { background: var(--cal); }
+.hamburguer[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburguer[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.hamburguer[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 940px) {
+  .hamburguer { display: block; z-index: 70; }
+  .nav {
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.75rem;
+    background: var(--noite);
+    transform: translateY(-100%);
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+    z-index: 65;
+  }
+  .nav[data-aberto="true"] { transform: translateY(0); }
+  .nav a { color: var(--cal) !important; font-size: var(--t-lg); }
+}
+
+/* --------------------------------------------------------------------------
+   8. HERÓI
+   -------------------------------------------------------------------------- */
+.heroi {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  padding-block: 8rem 3rem;
+  background: var(--noite);
+  color: var(--cal);
+  overflow: hidden;
+}
+
+.heroi__foto {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 0.78;
+}
+
+/* O véu escurece só o rodapé da foto, onde o texto senta.
+   O rosto das pessoas continua visível — é o argumento da página. */
+.heroi__veu {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(90% 70% at 88% 6%, rgba(241,89,42,.30), transparent 58%),
+    linear-gradient(180deg, rgba(12,11,10,.60) 0%, rgba(12,11,10,.20) 32%, rgba(12,11,10,.82) 72%, rgba(12,11,10,.97) 100%);
+}
+
+.heroi__conteudo {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: end;
+}
+
+.heroi .titulo { max-width: 14ch; }
+
+.heroi__frase {
+  font-size: var(--t-md);
+  max-width: 44ch;
+  margin-top: 1.5rem;
+  color: #D8CFC4;
+}
+
+.heroi__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+  .heroi__conteudo { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   9. SELETOR DE CONGREGAÇÃO — elemento assinatura
+   O visitante escolhe onde fica. Tudo no site responde a essa escolha.
+   -------------------------------------------------------------------------- */
+.seletor {
+  background: rgba(244, 240, 233, 0.07);
+  border: 1px solid rgba(244, 240, 233, 0.16);
+  border-radius: var(--raio);
+  padding: 1.5rem;
+  backdrop-filter: blur(6px);
+}
+
+.seletor__rotulo {
+  font-family: var(--util);
+  font-size: var(--t-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ambar);
+  margin-bottom: 0.9rem;
+}
+
+.seletor__abas {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.aba {
+  flex: 1;
+  padding: 0.6rem 0.4rem;
+  font-family: var(--util);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: transparent;
+  color: #A79C90;
+  border: 1px solid rgba(244,240,233,.18);
+  border-radius: var(--raio);
+  cursor: pointer;
+  transition: all .18s ease;
+}
+.aba:hover { color: var(--cal); border-color: rgba(244,240,233,.4); }
+.aba[aria-selected="true"] {
+  background: var(--brasa);
+  border-color: var(--brasa);
+  color: #fff;
+}
+
+.seletor__proximo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-family: var(--display);
+  font-size: var(--t-lg);
+  margin-bottom: 0.35rem;
+}
+.seletor__proximo strong { font-weight: 600; }
+
+.seletor__contagem {
+  font-family: var(--util);
+  font-size: var(--t-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brasa);
+}
+
+.seletor__endereco {
+  font-size: var(--t-sm);
+  color: #A79C90;
+  margin: 1rem 0 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(244,240,233,.14);
+}
+
+.seletor__acoes { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.seletor__acoes .btn { flex: 1; justify-content: center; padding-inline: 1rem; }
+
+/* --------------------------------------------------------------------------
+   10. GRADE DE CONTEÚDO
+   -------------------------------------------------------------------------- */
+.duas-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+@media (max-width: 860px) {
+  .duas-colunas { grid-template-columns: 1fr; }
+}
+
+.cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.cartao {
+  background: var(--cal);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  padding: 1.75rem;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.cartao:hover { border-color: var(--brasa); transform: translateY(-2px); }
+
+.secao--noite .cartao {
+  background: var(--carvao);
+  border-color: rgba(244,240,233,.14);
+}
+
+.cartao__numero {
+  font-family: var(--util);
+  font-size: var(--t-xs);
+  letter-spacing: 0.16em;
+  color: var(--brasa);
+  margin-bottom: 0.75rem;
+}
+
+.cartao h3 {
+  font-family: var(--display);
+  font-size: var(--t-lg);
+  margin-bottom: 0.5rem;
+}
+
+.cartao p {
+  font-size: var(--t-sm);
+  color: var(--neutro);
+  margin: 0;
+}
+.secao--noite .cartao p { color: #A79C90; }
+
+/* --------------------------------------------------------------------------
+   11. PILARES (Missão / Visão / Paixão)
+   -------------------------------------------------------------------------- */
+.pilares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--linha);
+  border-block: 1px solid var(--linha);
+  margin-top: 3rem;
+}
+.secao--noite .pilares {
+  background: rgba(244,240,233,.14);
+  border-color: rgba(244,240,233,.14);
+}
+
+.pilar {
+  background: var(--cal);
+  padding: 2.5rem 1.75rem;
+}
+.secao--noite .pilar { background: var(--noite); }
+
+.pilar__nome {
+  font-family: var(--util);
+  font-size: var(--t-sm);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brasa);
+  margin-bottom: 1rem;
+}
+
+.pilar p { font-size: var(--t-sm); color: var(--neutro); margin: 0; }
+.secao--noite .pilar p { color: #A79C90; }
+
+@media (max-width: 780px) {
+  .pilares { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   12. GALERIA
+   -------------------------------------------------------------------------- */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 0.75rem;
+  margin-top: 3rem;
+}
+.galeria img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: var(--raio);
+  filter: saturate(0.92);
+  transition: filter .3s ease, transform .3s ease;
+}
+.galeria img:hover { filter: saturate(1.05); transform: scale(1.01); }
+.galeria__alta { grid-row: span 2; }
+.galeria__larga { grid-column: span 2; }
+
+@media (max-width: 780px) {
+  .galeria { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
+}
+
+/* --------------------------------------------------------------------------
+   13. FAIXA UNIDADE 2K26
+   -------------------------------------------------------------------------- */
+.unidade {
+  position: relative;
+  background: var(--noite);
+  color: var(--cal);
+  overflow: hidden;
+}
+.unidade::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 60% at 5% 0%, rgba(241,89,42,.55), transparent 60%),
+    radial-gradient(60% 60% at 95% 100%, rgba(233,162,59,.35), transparent 60%);
+  pointer-events: none;
+}
+.unidade__grade {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.unidade__ano {
+  font-family: var(--display);
+  font-size: var(--t-3xl);
+  line-height: 0.95;
+  font-style: italic;
+}
+@media (max-width: 860px) {
+  .unidade__grade { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   14. LISTA DE HORÁRIOS
+   -------------------------------------------------------------------------- */
+.horarios { margin-top: 3rem; display: grid; gap: 1px; background: var(--linha); }
+
+.horario {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  background: var(--cal);
+  padding: 1.5rem 1.25rem;
+}
+.horario__local { font-family: var(--display); font-size: var(--t-lg); }
+.horario__dia, .horario__endereco {
+  font-size: var(--t-sm);
+  color: var(--neutro);
+}
+.horario__dia strong {
+  display: block;
+  font-family: var(--util);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grafite);
+  font-size: var(--t-xs);
+}
+@media (max-width: 860px) {
+  .horario { grid-template-columns: 1fr; gap: 0.5rem; }
+}
+
+/* --------------------------------------------------------------------------
+   15. FORMULÁRIO
+   -------------------------------------------------------------------------- */
+.formulario { display: grid; gap: 1.25rem; max-width: 560px; }
+
+.campo { display: grid; gap: 0.4rem; }
+
+.campo label {
+  font-family: var(--util);
+  font-size: var(--t-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--neutro);
+}
+
+.campo input, .campo select, .campo textarea {
+  font-family: var(--corpo);
+  font-size: var(--t-base);
+  padding: 0.85rem 1rem;
+  background: #fff;
+  color: var(--grafite);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+}
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  border-color: var(--brasa);
+  outline: none;
+}
+.campo textarea { min-height: 140px; resize: vertical; }
+
+/* --------------------------------------------------------------------------
+   16. RODAPÉ
+   -------------------------------------------------------------------------- */
+.rodape {
+  background: var(--noite);
+  color: #A79C90;
+  padding-block: 4.5rem 2rem;
+}
+
+.rodape__grade {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(244,240,233,.14);
+}
+
+.rodape__logo img { height: 44px; margin-bottom: 1.25rem; }
+
+.rodape h4 {
+  font-family: var(--util);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cal);
+  margin: 0 0 1.1rem;
+}
+
+.rodape ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.rodape li { font-size: var(--t-sm); }
+.rodape a:hover { color: var(--brasa); }
+
+.rodape__base {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 2rem;
+  font-size: var(--t-xs);
+}
+
+@media (max-width: 860px) {
+  .rodape__grade { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .rodape__grade { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   17. CABEÇALHO DE PÁGINA INTERNA
+   -------------------------------------------------------------------------- */
+.capa {
+  background: var(--noite);
+  color: var(--cal);
+  padding-block: 11rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.capa::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(80% 100% at 100% 0%, rgba(241,89,42,.28), transparent 60%);
+}
+.capa__conteudo { position: relative; z-index: 2; }
+
+/* --------------------------------------------------------------------------
+   18. MODO PLACEHOLDER
+   Ferramenta da fase de estrutura. Marca todo texto que ainda vai mudar.
+   Remover este bloco (e o data-ph do HTML) quando o conteúdo final entrar.
+   -------------------------------------------------------------------------- */
+body[data-modo-ph="true"] [data-ph] {
+  background: rgba(241, 89, 42, 0.16);
+  outline: 1px dashed var(--brasa);
+  outline-offset: 2px;
+}
+
+.barra-ph {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  background: var(--grafite);
+  color: var(--cal);
+  border: 0;
+  border-radius: 999px;
+  font-family: var(--util);
+  font-size: var(--t-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+}
+.barra-ph__ponto {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--neutro);
+}
+body[data-modo-ph="true"] .barra-ph__ponto { background: var(--brasa); }
+
+/* --------------------------------------------------------------------------
+   19. REVELAÇÃO AO ROLAR
+   -------------------------------------------------------------------------- */
+[data-revelar] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+[data-revelar].visivel { opacity: 1; transform: none; }

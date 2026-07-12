@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Igreja Evangelho Pleno — Nossa paixão é por vidas</title>
+<meta name="description" content="Três congregações no Espírito Santo: Santa Teresa, São Roque do Canaã e Várzea Alegre. Veja os horários dos cultos e venha nos visitar.">
+<link rel="icon" href="assets/img/logo/icone-preto.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter:wght@400;500&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!-- ====================================================================
+     CABEÇALHO
+     ==================================================================== -->
+<header class="cabecalho">
+  <a class="cabecalho__logo" href="index.html">
+    <img class="logo-claro"  src="assets/img/logo/logo-branco.png" alt="Igreja Evangelho Pleno">
+    <img class="logo-escuro" src="assets/img/logo/logo-preto.png"  alt="Igreja Evangelho Pleno">
+  </a>
+
+  <button class="hamburguer" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="nav" data-aberto="false">
+    <a href="index.html" aria-current="page">Início</a>
+    <a href="primeira-visita.html">Primeira visita</a>
+    <a href="quem-somos.html">Quem somos</a>
+    <a href="ministerios.html">Ministérios</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="contato.html">Contato</a>
+    <a class="btn btn--brasa nav__cta" href="contribua.html">Contribua</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ====================================================================
+     HERÓI — a primeira coisa que o visitante vê é gente, não prédio
+     ==================================================================== -->
+<section class="heroi">
+  <img class="heroi__foto" src="assets/img/fotos/congregacao-cheia.jpg" alt="Congregação reunida durante o culto">
+  <div class="heroi__veu"></div>
+
+  <div class="container heroi__conteudo">
+    <div>
+      <p class="sobrescrito">Santa Teresa · São Roque do Canaã · Várzea Alegre</p>
+
+      <h1 class="titulo titulo--grande" data-ph>
+        Tem sempre<br>uma cadeira<br><em>livre</em> aqui.
+      </h1>
+
+      <p class="heroi__frase" data-ph>
+        Você não precisa se arrumar, saber cantar as músicas nem entender tudo.
+        Só precisa chegar. A gente cuida do resto.
+      </p>
+
+      <div class="heroi__acoes">
+        <a class="btn btn--brasa" href="primeira-visita.html">É a minha primeira vez</a>
+        <a class="btn btn--contorno" href="#onde-estamos">Ver horários</a>
+      </div>
+    </div>
+
+    <!-- SELETOR DE CONGREGAÇÃO — o coração da home -->
+    <div class="seletor" data-seletor>
+      <p class="seletor__rotulo">Qual congregação fica mais perto de você?</p>
+
+      <div class="seletor__abas" role="tablist" data-abas></div>
+
+      <p class="seletor__proximo">
+        <strong data-culto-nome></strong>
+      </p>
+      <p class="seletor__proximo" style="font-size:var(--t-base);color:#A79C90;margin-bottom:.75rem;">
+        <span data-culto-quando></span>
+      </p>
+      <p class="seletor__contagem" data-contagem></p>
+
+      <p class="seletor__endereco" data-endereco></p>
+
+      <div class="seletor__acoes">
+        <a class="btn btn--brasa" href="#" target="_blank" rel="noopener" data-mapa>Como chegar</a>
+        <a class="btn btn--contorno" href="contato.html">Falar com alguém</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     O QUE ESPERAR — mata a ansiedade de quem nunca foi
+     ==================================================================== -->
+<section class="secao">
+  <div class="container">
+    <div class="duas-colunas">
+      <div data-revelar>
+        <p class="sobrescrito">Antes de você chegar</p>
+        <h2 class="titulo" data-ph>Ninguém vai<br>te encarar.</h2>
+        <p class="subtitulo" style="margin-top:1.5rem;" data-ph>
+          A gente sabe que entrar sozinho numa igreja pela primeira vez é
+          estranho. Então já respondemos aqui o que quase todo mundo quer
+          perguntar mas não pergunta.
+        </p>
+        <a class="btn btn--escuro" href="primeira-visita.html" style="margin-top:1rem;">
+          Ver tudo sobre a primeira visita
+        </a>
+      </div>
+
+      <div data-revelar>
+        <img src="assets/img/fotos/familias-criancas.jpg"
+             alt="Famílias e crianças durante o culto"
+             style="border-radius:var(--raio);">
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao" data-revelar>
+        <p class="cartao__numero">01</p>
+        <h3 data-ph>Como me visto?</h3>
+        <p data-ph>Como você estiver. Tem gente de terno e tem gente de chinelo, e ninguém repara.</p>
+      </article>
+
+      <article class="cartao" data-revelar>
+        <p class="cartao__numero">02</p>
+        <h3 data-ph>Quanto tempo dura?</h3>
+        <p data-ph>Cerca de uma hora e meia. Se precisar sair antes, sem problema.</p>
+      </article>
+
+      <article class="cartao" data-revelar>
+        <p class="cartao__numero">03</p>
+        <h3 data-ph>E as crianças?</h3>
+        <p data-ph>Ficam com você ou no espaço infantil. Barulho de criança aqui não incomoda.</p>
+      </article>
+
+      <article class="cartao" data-revelar>
+        <p class="cartao__numero">04</p>
+        <h3 data-ph>Vão pedir dinheiro?</h3>
+        <p data-ph>Não. A oferta é entre você e Deus, e visitante não precisa participar.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     PILARES — Missão, Visão, Paixão (da peça 2K26)
+     ==================================================================== -->
+<section class="secao secao--areia">
+  <div class="container">
+    <div style="max-width:52ch;" data-revelar>
+      <p class="sobrescrito">No que a gente acredita</p>
+      <h2 class="titulo" data-ph>Uma só missão.<br>Uma só visão.<br><em>Uma só paixão.</em></h2>
+    </div>
+
+    <div class="pilares">
+      <div class="pilar" data-revelar>
+        <p class="pilar__nome">Missão</p>
+        <p data-ph>[TEXTO A DEFINIR] A frase oficial da missão da igreja entra aqui, em duas ou três linhas.</p>
+      </div>
+      <div class="pilar" data-revelar>
+        <p class="pilar__nome">Visão</p>
+        <p data-ph>[TEXTO A DEFINIR] A frase oficial da visão da igreja entra aqui, em duas ou três linhas.</p>
+      </div>
+      <div class="pilar" data-revelar>
+        <p class="pilar__nome">Paixão</p>
+        <p data-ph>[TEXTO A DEFINIR] A frase oficial da paixão da igreja entra aqui, em duas ou três linhas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     ANO DA UNIDADE 2K26
+     ==================================================================== -->
+<section class="secao unidade">
+  <div class="container unidade__grade">
+    <div data-revelar>
+      <p class="sobrescrito">2K26</p>
+      <h2 class="unidade__ano">Ano da<br>Unidade</h2>
+      <p class="subtitulo" style="margin-top:1.75rem;" data-ph>
+        Três congregações, uma igreja. Em 2026 a gente decidiu andar junto de
+        verdade, e não só no papel.
+      </p>
+      <a class="btn btn--brasa" href="unidade.html" style="margin-top:.5rem;">Conhecer a campanha</a>
+    </div>
+
+    <!-- Selo: elemento assinatura da marca -->
+    <div class="selo" style="width:200px;height:200px;" data-revelar>
+      <svg class="selo__texto asterisco--girando" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <path id="anelSelo" fill="none"
+                d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"></path>
+        </defs>
+        <text font-family="Oswald, sans-serif" font-size="13" font-weight="500"
+              letter-spacing="2.2" fill="#F1592A">
+          <textPath href="#anelSelo" startOffset="0%">
+            UMA SÓ MISSÃO • UMA SÓ VISÃO • UMA SÓ PAIXÃO •
+          </textPath>
+        </text>
+      </svg>
+
+      <svg class="selo__miolo" viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="currentColor">
+          <polygon points="47,44 44,6 56,6 53,44"/>
+          <polygon points="47,44 44,6 56,6 53,44" transform="rotate(45 50 50)"/>
+          <polygon points="47,44 44,6 56,6 53,44" transform="rotate(90 50 50)"/>
+          <polygon points="47,44 44,6 56,6 53,44" transform="rotate(135 50 50)"/>
+          <polygon points="47,44 44,6 56,6 53,44" transform="rotate(180 50 50)"/>
+          <polygon points="47,44 44,6 56,6 53,44" transform="rotate(225 50 50)"/>
+          <polygon points="47,44 44,6 56,6 53,44" transform="rotate(270 50 50)"/>
+          <polygon points="47,44 44,6 56,6 53,44" transform="rotate(315 50 50)"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     GALERIA — a igreja como ela é de verdade
+     ==================================================================== -->
+<section class="secao">
+  <div class="container">
+    <div data-revelar>
+      <p class="sobrescrito">A gente, sem filtro</p>
+      <h2 class="titulo" data-ph>É assim<br>num domingo.</h2>
+    </div>
+
+    <div class="galeria" data-revelar>
+      <img class="galeria__larga" src="assets/img/fotos/salao-culto.jpg" alt="Salão durante o culto de domingo" loading="lazy">
+      <img class="galeria__alta"  src="assets/img/fotos/oracao-vertical.jpg" alt="Momento de oração" loading="lazy">
+      <img src="assets/img/fotos/geracoes.jpg" alt="Pessoas de várias idades reunidas" loading="lazy">
+      <img src="assets/img/fotos/biblia-aberta.jpg" alt="Bíblia aberta durante a mensagem" loading="lazy">
+      <img src="assets/img/fotos/oracao.jpg" alt="Família em oração" loading="lazy">
+      <img class="galeria__larga" src="assets/img/fotos/salao-fundo.jpg" alt="Vista do fundo do salão" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     ONDE ESTAMOS
+     ==================================================================== -->
+<section class="secao secao--areia" id="onde-estamos">
+  <div class="container">
+    <div data-revelar>
+      <p class="sobrescrito">Três congregações</p>
+      <h2 class="titulo" data-ph>Escolha a mais<br>perto de casa.</h2>
+    </div>
+
+    <div class="horarios" data-horarios data-revelar></div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     CHAMADA FINAL
+     ==================================================================== -->
+<section class="secao secao--noite">
+  <div class="container duas-colunas">
+    <div data-revelar>
+      <p class="sobrescrito">Fale com a gente</p>
+      <h2 class="titulo" data-ph>Precisa de<br>oração?</h2>
+      <p class="subtitulo" style="margin-top:1.5rem;" data-ph>
+        Escreve pra gente. Alguém vai orar por você esta semana, com nome e tudo,
+        e ninguém mais precisa ficar sabendo.
+      </p>
+      <a class="btn btn--brasa" href="contato.html">Enviar pedido de oração</a>
+    </div>
+
+    <div data-revelar>
+      <img src="assets/img/fotos/salao-vertical.jpg" alt="Salão da igreja visto do fundo"
+           style="border-radius:var(--raio);max-height:520px;object-fit:cover;width:100%;">
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====================================================================
+     RODAPÉ
+     ==================================================================== -->
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape__grade">
+      <div class="rodape__logo">
+        <img src="assets/img/logo/logo-branco.png" alt="Igreja Evangelho Pleno">
+        <p style="font-size:var(--t-sm);max-width:32ch;" data-ph>
+          Nossa paixão é por vidas. Três congregações no Espírito Santo,
+          uma porta sempre aberta.
+        </p>
+      </div>
+
+      <div>
+        <h4>Navegar</h4>
+        <ul>
+          <li><a href="primeira-visita.html">Primeira visita</a></li>
+          <li><a href="quem-somos.html">Quem somos</a></li>
+          <li><a href="unidade.html">Ano da Unidade</a></li>
+          <li><a href="ministerios.html">Ministérios</a></li>
+          <li><a href="agenda.html">Agenda</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Congregações</h4>
+        <ul>
+          <li>Santa Teresa — ES</li>
+          <li>São Roque do Canaã — ES</li>
+          <li>Várzea Alegre — ES</li>
+          <li><a href="agenda.html">Ver horários</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="contato.html">Pedido de oração</a></li>
+          <li><a href="contribua.html">Contribua</a></li>
+          <li data-ph>[WHATSAPP A DEFINIR]</li>
+          <li data-ph>[INSTAGRAM A DEFINIR]</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rodape__base">
+      <p style="margin:0;">© 2026 Igreja Evangelho Pleno</p>
+      <p style="margin:0;">Uma só missão · Uma só visão · Uma só paixão</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Ferramenta da fase de estrutura. Remover na entrega final. -->
+<button class="barra-ph" type="button">
+  <span class="barra-ph__ponto"></span>
+  <span data-ph-texto>Ver placeholders</span>
+</button>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

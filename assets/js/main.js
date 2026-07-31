@@ -168,32 +168,23 @@ function montarHorarios() {
    Cabeçalho, menu, revelação e modo placeholder
    -------------------------------------------------------------------------- */
 function ligarCabecalho() {
-  const cabecalho = document.querySelector('.cabecalho');
-  const botao     = document.querySelector('.hamburguer');
-  const nav       = document.querySelector('.nav');
-  if (!cabecalho) return;
+  const botao = document.querySelector('.hamburguer');
+  const nav   = document.querySelector('.nav');
+  if (!botao || !nav) return;
 
-  const aoRolar = () => {
-    cabecalho.classList.toggle('cabecalho--fixo', window.scrollY > 40);
-  };
-  aoRolar();
-  window.addEventListener('scroll', aoRolar, { passive: true });
-
-  if (botao && nav) {
-    botao.addEventListener('click', () => {
-      const aberto = botao.getAttribute('aria-expanded') === 'true';
-      botao.setAttribute('aria-expanded', String(!aberto));
-      nav.dataset.aberto = String(!aberto);
-      document.body.style.overflow = !aberto ? 'hidden' : '';
+  botao.addEventListener('click', () => {
+    const aberto = botao.getAttribute('aria-expanded') === 'true';
+    botao.setAttribute('aria-expanded', String(!aberto));
+    nav.dataset.aberto = String(!aberto);
+    document.body.style.overflow = !aberto ? 'hidden' : '';
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      botao.setAttribute('aria-expanded', 'false');
+      nav.dataset.aberto = 'false';
+      document.body.style.overflow = '';
     });
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        botao.setAttribute('aria-expanded', 'false');
-        nav.dataset.aberto = 'false';
-        document.body.style.overflow = '';
-      });
-    });
-  }
+  });
 }
 
 function ligarRevelacao() {

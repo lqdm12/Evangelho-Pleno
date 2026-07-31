@@ -233,29 +233,16 @@ p { margin: 0 0 1em; }
    7. CABEÇALHO
    -------------------------------------------------------------------------- */
 .cabecalho {
-  position: fixed;
-  inset: 0 0 auto 0;
-  z-index: 60;
+  position: relative;
+  background: var(--noite);
   display: flex;
   align-items: center;
   gap: var(--gap);
   padding: 1rem clamp(1.25rem, 4vw, 2.5rem);
-  transition: background .3s ease, box-shadow .3s ease, padding .3s ease;
-}
-
-.cabecalho--fixo {
-  background: rgba(244, 240, 233, 0.92);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 var(--linha);
-  padding-block: 0.65rem;
 }
 
 .cabecalho__logo { margin-right: auto; }
 .cabecalho__logo img { height: 38px; width: auto; }
-.cabecalho__logo .logo-claro { display: block; }
-.cabecalho__logo .logo-escuro { display: none; }
-.cabecalho--fixo .logo-claro { display: none; }
-.cabecalho--fixo .logo-escuro { display: block; }
 
 .nav {
   display: flex;
@@ -274,14 +261,9 @@ p { margin: 0 0 1em; }
   border-bottom: 1px solid transparent;
   transition: border-color .18s ease, color .18s ease;
 }
-.cabecalho--fixo .nav a { color: var(--grafite); }
 .nav a:hover, .nav a[aria-current="page"] { border-bottom-color: var(--brasa); }
 
 .nav__cta { color: #fff !important; border-bottom: 0 !important; }
-.cabecalho--fixo .nav__cta { color: #fff !important; }
-
-/* Cabeçalho em páginas internas de fundo claro */
-.cabecalho--claro { background: var(--noite); }
 
 /* Menu mobile */
 .hamburguer {
@@ -295,7 +277,6 @@ p { margin: 0 0 1em; }
   background: var(--cal); margin-block: 5px;
   transition: transform .25s ease, opacity .25s ease, background .25s ease;
 }
-.cabecalho--fixo .hamburguer span { background: var(--grafite); }
 .hamburguer[aria-expanded="true"] span { background: var(--cal); }
 .hamburguer[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburguer[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
@@ -326,7 +307,7 @@ p { margin: 0 0 1em; }
   min-height: 100svh;
   display: flex;
   align-items: flex-end;
-  padding-block: 8rem 3rem;
+  padding-block: 4rem 3rem;
   background: var(--noite);
   color: var(--cal);
   overflow: hidden;
@@ -728,7 +709,7 @@ p { margin: 0 0 1em; }
 .capa {
   background: var(--noite);
   color: var(--cal);
-  padding-block: 11rem 5rem;
+  padding-block: 6.5rem 5rem;
   position: relative;
   overflow: hidden;
 }

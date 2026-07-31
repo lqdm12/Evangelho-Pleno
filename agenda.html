@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda — Igreja Evangelho Pleno</title>
+<meta name="description" content="Horários de culto das três congregações e a programação semanal da Igreja Evangelho Pleno. Tem porta aberta em Santa Teresa, São Roque do Canaã e Várzea Alegre.">
+<link rel="icon" href="assets/img/logo/logo-preto.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter:wght@400;500&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <a class="cabecalho__logo" href="index.html">
+    <img src="assets/img/logo/logo-branco.png" alt="Igreja Evangelho Pleno">
+  </a>
+
+  <button class="hamburguer" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="nav" data-aberto="false">
+    <a href="index.html">Início</a>
+    <a href="primeira-visita.html">Primeira visita</a>
+    <a href="quem-somos.html">Quem somos</a>
+    <a href="ministerios.html">Ministérios</a>
+    <a href="agenda.html" aria-current="page">Agenda</a>
+    <a href="contato.html">Contato</a>
+    <a class="btn btn--brasa nav__cta" href="contribua.html">Contribua</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="capa">
+  <div class="container capa__conteudo">
+    <p class="sobrescrito">Agenda</p>
+    <h1 class="titulo">A semana<br>em que a gente<br><em>se encontra.</em></h1>
+    <p class="subtitulo" style="margin-top:1.5rem;">
+      Cultos, ensaios e oração. Tem porta aberta em Santa Teresa, São Roque do
+      Canaã e Várzea Alegre.
+    </p>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="container">
+    <div data-revelar>
+      <p class="sobrescrito">Toda semana</p>
+      <h2 class="titulo">Onde cada congregação<br>se reúne.</h2>
+    </div>
+
+    <div class="horarios" data-horarios data-revelar></div>
+  </div>
+</section>
+
+<section class="secao secao--areia">
+  <div class="container">
+    <div data-revelar>
+      <p class="sobrescrito">Durante a semana</p>
+      <h2 class="titulo">Tem coisa acontecendo<br>quase todo dia.</h2>
+    </div>
+
+    <div class="eventos" data-revelar>
+      <div class="evento">
+        <p class="evento__dia">Domingo</p>
+        <p class="evento__nome">Culto de Celebração</p>
+        <p class="evento__quando">19h00 · Santa Teresa<br>19h30 · São Roque e Várzea Alegre</p>
+      </div>
+      <div class="evento">
+        <p class="evento__dia">Terça</p>
+        <p class="evento__nome">Culto de Ensino</p>
+        <p class="evento__quando">19h30 · Santa Teresa</p>
+      </div>
+      <div class="evento">
+        <p class="evento__dia">Quarta</p>
+        <p class="evento__nome">Culto de Ensino</p>
+        <p class="evento__quando">19h30 · Várzea Alegre</p>
+      </div>
+      <div class="evento" data-ph>
+        <p class="evento__dia">Quarta</p>
+        <p class="evento__nome">Ensaio do Louvor</p>
+        <p class="evento__quando">18h00 · Santa Teresa</p>
+      </div>
+      <div class="evento">
+        <p class="evento__dia">Quinta</p>
+        <p class="evento__nome">Culto de Ensino</p>
+        <p class="evento__quando">19h30 · São Roque do Canaã</p>
+      </div>
+      <div class="evento" data-ph>
+        <p class="evento__dia">Sexta</p>
+        <p class="evento__nome">Vigília de Oração</p>
+        <p class="evento__quando">19h30 · Várzea Alegre</p>
+      </div>
+      <div class="evento" data-ph>
+        <p class="evento__dia">Sábado</p>
+        <p class="evento__nome">Café e Intercessão</p>
+        <p class="evento__quando">08h00 · rotativo nas três congregações</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="container">
+    <div data-revelar>
+      <p class="sobrescrito">Fique de olho</p>
+      <h2 class="titulo">Datas que a gente<br>marca com carinho.</h2>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao" data-revelar>
+        <p class="cartao__numero">2K26</p>
+        <h3>Celebração da Unidade</h3>
+        <p data-ph>Uma vez por ano as três congregações se juntam num único culto. A data é divulgada no púlpito e aqui.</p>
+        <a class="btn btn--escuro" href="unidade.html" style="margin-top:1.25rem;">Ano da Unidade</a>
+      </article>
+      <article class="cartao" data-revelar>
+        <p class="cartao__numero">Mensal</p>
+        <h3>Culto de Missões</h3>
+        <p data-ph>Uma vez por mês, a mensagem conta histórias de onde o Evangelho está chegando e as ofertas vão para missões.</p>
+      </article>
+      <article class="cartao" data-revelar>
+        <p class="cartao__numero">Dezembro</p>
+        <h3>Natal das Famílias</h3>
+        <p data-ph>Culto de fim de ano com as três congregações, seguido de confraternização com mesa farta.</p>
+      </article>
+      <article class="cartao" data-revelar>
+        <p class="cartao__numero">Novidade</p>
+        <h3>Quer receber os avisos?</h3>
+        <p>Manda uma mensagem com seu nome e a gente te inclui no grupo de avisos da sua congregação.</p>
+        <a class="btn btn--contorno" href="contato.html" style="margin-top:1.25rem;">Quero receber avisos</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape__grade">
+      <div class="rodape__logo">
+        <img src="assets/img/logo/logo-branco.png" alt="Igreja Evangelho Pleno">
+        <p style="font-size:var(--t-sm);max-width:32ch;">
+          Nossa paixão é por vidas. Três congregações no Espírito Santo,
+          uma porta sempre aberta.
+        </p>
+      </div>
+      <div>
+        <h4>Navegar</h4>
+        <ul>
+          <li><a href="primeira-visita.html">Primeira visita</a></li>
+          <li><a href="quem-somos.html">Quem somos</a></li>
+          <li><a href="unidade.html">Ano da Unidade</a></li>
+          <li><a href="ministerios.html">Ministérios</a></li>
+          <li><a href="agenda.html">Agenda</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Congregações</h4>
+        <ul>
+          <li>Santa Teresa — ES</li>
+          <li>São Roque do Canaã — ES</li>
+          <li>Várzea Alegre — ES</li>
+          <li><a href="agenda.html">Ver horários</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="contato.html">Pedido de oração</a></li>
+          <li><a href="contribua.html">Contribua</a></li>
+          <li data-ph>[WHATSAPP A DEFINIR]</li>
+          <li data-ph>[INSTAGRAM A DEFINIR]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape__base">
+      <p style="margin:0;">© 2026 Igreja Evangelho Pleno</p>
+      <p style="margin:0;">Uma só missão · Uma só visão · Uma só paixão</p>
+    </div>
+  </div>
+</footer>
+
+<button class="barra-ph" type="button">
+  <span class="barra-ph__ponto"></span>
+  <span data-ph-texto>Ver placeholders</span>
+</button>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

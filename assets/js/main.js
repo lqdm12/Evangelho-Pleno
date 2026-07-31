@@ -173,12 +173,6 @@ function ligarCabecalho() {
   const nav       = document.querySelector('.nav');
   if (!cabecalho) return;
 
-  const aoRolar = () => {
-    cabecalho.classList.toggle('cabecalho--fixo', window.scrollY > 40);
-  };
-  aoRolar();
-  window.addEventListener('scroll', aoRolar, { passive: true });
-
   if (botao && nav) {
     botao.addEventListener('click', () => {
       const aberto = botao.getAttribute('aria-expanded') === 'true';

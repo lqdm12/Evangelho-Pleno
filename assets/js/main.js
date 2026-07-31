@@ -177,7 +177,7 @@ function ligarCabecalho() {
     cabecalho.classList.toggle('cabecalho--fixo', window.scrollY > 40);
   };
   aoRolar();
-  window.addEventListener(aoRolar, { passive: true });
+  window.addEventListener('scroll', aoRolar, { passive: true });
 
   if (botao && nav) {
     botao.addEventListener('click', () => {

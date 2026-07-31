@@ -690,7 +690,7 @@ p { margin: 0 0 1em; }
   border-bottom: 1px solid rgba(244,240,233,.14);
 }
 
-.rodape__logo img { height: 44px; margin-bottom: 1.25rem; }
+.rodape__logo img { height: 65px; margin-bottom: 1.25rem; }
 
 .rodape h4 {
   font-family: var(--util);

@@ -190,6 +190,16 @@ function ligarCabecalho() {
     botao.setAttribute('aria-expanded', String(!aberto));
     nav.dataset.aberto = String(!aberto);
   });
+
+  document.addEventListener('click', (e) => {
+    if (nav.dataset.aberto !== 'true') return;
+    if (!nav.contains(e.target) && !botao.contains(e.target)) fecharMenu();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') fecharMenu();
+  });
+
   nav.querySelectorAll('a').forEach(link => link.addEventListener('click', fecharMenu));
 }
 

@@ -173,8 +173,14 @@ function ligarCabecalho() {
   const nav       = document.querySelector('.nav');
   if (!cabecalho) return;
 
+  const fecharMenu = () => {
+    botao.setAttribute('aria-expanded', 'false');
+    nav.dataset.aberto = 'false';
+  };
+
   const aoRolar = () => {
     cabecalho.classList.toggle('cabecalho--fixo', window.scrollY > 40);
+    if (nav.dataset.aberto === 'true') fecharMenu();
   };
   aoRolar();
   window.addEventListener('scroll', aoRolar, { passive: true });
@@ -183,15 +189,8 @@ function ligarCabecalho() {
     const aberto = botao.getAttribute('aria-expanded') === 'true';
     botao.setAttribute('aria-expanded', String(!aberto));
     nav.dataset.aberto = String(!aberto);
-    document.body.style.overflow = !aberto ? 'hidden' : '';
   });
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      botao.setAttribute('aria-expanded', 'false');
-      nav.dataset.aberto = 'false';
-      document.body.style.overflow = '';
-    });
-  });
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', fecharMenu));
 }
 
 function ligarRevelacao() {

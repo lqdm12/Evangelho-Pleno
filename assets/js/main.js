@@ -165,7 +165,7 @@ function montarHorarios() {
 }
 
 /* --------------------------------------------------------------------------
-   Cabeçalho, menu, revelação e modo placeholder
+   Cabeçalho, menu, revelação e formulário
    -------------------------------------------------------------------------- */
 function ligarCabecalho() {
   const cabecalho = document.querySelector('.cabecalho');
@@ -210,15 +210,42 @@ function ligarRevelacao() {
   alvos.forEach(alvo => observador.observe(alvo));
 }
 
-function ligarModoPlaceholder() {
-  const botao = document.querySelector('.barra-ph');
-  if (!botao) return;
+function ligarFormulario() {
+  const form = document.querySelector('.formulario');
+  if (!form) return;
 
-  botao.addEventListener('click', () => {
-    const ativo = document.body.dataset.modoPh === 'true';
-    document.body.dataset.modoPh = String(!ativo);
-    botao.querySelector('[data-ph-texto]').textContent =
-      !ativo ? 'Placeholders visíveis' : 'Ver placeholders';
+  const status = form.querySelector('[role="status"]');
+  const botao = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.classList.remove('formulario__status--ok', 'formulario__status--erro');
+    status.textContent = '';
+    botao.disabled = true;
+    botao.textContent = 'Enviando…';
+
+    try {
+      const resposta = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (resposta.ok) {
+        status.textContent = 'Recebido! Vamos responder em breve.';
+        status.classList.add('formulario__status--ok');
+        form.reset();
+      } else {
+        status.textContent = 'Não conseguimos enviar agora. Tenta de novo em instantes.';
+        status.classList.add('formulario__status--erro');
+      }
+    } catch {
+      status.textContent = 'Sem conexão por aqui. Tenta de novo em instantes.';
+      status.classList.add('formulario__status--erro');
+    } finally {
+      botao.disabled = false;
+      botao.textContent = 'Enviar';
+    }
   });
 }
 
@@ -227,5 +254,5 @@ document.addEventListener('DOMContentLoaded', () => {
   montarSeletor();
   montarHorarios();
   ligarRevelacao();
-  ligarModoPlaceholder();
+  ligarFormulario();
 });

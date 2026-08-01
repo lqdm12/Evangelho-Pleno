@@ -5,7 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contato — Igreja Evangelho Pleno</title>
 <meta name="description" content="Fale com a Igreja Evangelho Pleno. Pedido de oração, primeira visita, dúvidas — a gente responde.">
-<link rel="icon" href="assets/img/logo/logo-preto.png">
+<link rel="icon" href="assets/img/logo/favicon.svg" type="image/svg+xml">
+
+<!-- Compartilhamento (WhatsApp, redes sociais) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Igreja Evangelho Pleno">
+<meta property="og:title" content="Contato — Igreja Evangelho Pleno">
+<meta property="og:description" content="Fale com a Igreja Evangelho Pleno. Pedido de oração, primeira visita, dúvidas — a gente responde.">
+<meta property="og:image" content="https://www.evangelhopleno.com.br/assets/img/fotos/congregacao-cheia.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter:wght@400;500&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
@@ -13,16 +22,19 @@
 </head>
 <body>
 
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
 <header class="cabecalho">
   <a class="cabecalho__logo" href="index.html">
-    <img src="assets/img/logo/logo-branco.png" alt="Igreja Evangelho Pleno">
+    <img class="logo-claro"  src="assets/img/logo/logo-branco.png" alt="Igreja Evangelho Pleno">
+    <img class="logo-escuro" src="assets/img/logo/logo-preto.png"  alt="Igreja Evangelho Pleno">
   </a>
 
-  <button class="hamburguer" aria-label="Abrir menu" aria-expanded="false">
+  <button class="hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
     <span></span><span></span><span></span>
   </button>
 
-  <nav class="nav" data-aberto="false">
+  <nav class="nav" id="menu-principal" data-aberto="false">
     <a href="index.html">Início</a>
     <a href="primeira-visita.html">Primeira visita</a>
     <a href="quem-somos.html">Quem somos</a>
@@ -33,13 +45,13 @@
   </nav>
 </header>
 
-<main>
 
+<main id="conteudo">
 <section class="capa">
   <div class="container capa__conteudo">
     <p class="sobrescrito">Contato</p>
     <h1 class="titulo">Manda um oi.<br>A gente<br><em>responde.</em></h1>
-    <p class="subtitulo" style="margin-top:1.5rem;">
+    <p class="subtitulo mt-2">
       Pedido de oração, dúvida de primeira visita ou só vontade de conversar.
       É só escrever.
     </p>
@@ -51,28 +63,32 @@
     <div data-revelar>
       <p class="sobrescrito">Escreva pra gente</p>
       <h2 class="titulo">Ou digite,<br>do seu jeito.</h2>
-      <p class="subtitulo" style="margin-top:1.5rem;">
+      <p class="subtitulo mt-2">
         A gente lê tudo com calma e alguém responde — do outro lado tem gente,
         não robô.
       </p>
-      <a class="btn btn--contorno" href="https://wa.me/5527999123456" target="_blank" rel="noopener" style="margin-top:1rem;" data-ph>Chamar no WhatsApp</a>
+      <a class="btn btn--contorno mt-1" href="https://wa.me/5527999123456" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
 
     <div data-revelar>
-      <form class="formulario" data-ph>
+      <form class="formulario" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="SEU-ACCESS-KEY-DA-WEB3FORMS">
+        <input type="hidden" name="subject" value="Novo contato do site — Igreja Evangelho Pleno">
+        <input type="hidden" name="from_name" value="Site Evangelho Pleno">
+
         <div class="campo">
           <label for="nome">Seu nome</label>
-          <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como podemos te chamar?">
+          <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como podemos te chamar?" required>
         </div>
 
         <div class="campo">
           <label for="contato">WhatsApp ou e-mail</label>
-          <input id="contato" name="contato" type="text" placeholder="Pra gente conseguir responder">
+          <input id="contato" name="contato" type="text" autocomplete="email" placeholder="Pra gente conseguir responder" required>
         </div>
 
         <div class="campo">
           <label for="motivo">Assunto</label>
-          <select id="motivo" name="motivo">
+          <select id="motivo" name="motivo" required>
             <option>Pedido de oração</option>
             <option>Primeira visita</option>
             <option>Quero servir</option>
@@ -83,11 +99,11 @@
 
         <div class="campo">
           <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" placeholder="Escreve sem cerimônia. Ninguém aqui morde."></textarea>
+          <textarea id="mensagem" name="mensagem" placeholder="Escreve sem cerimônia. Ninguém aqui morde." required></textarea>
         </div>
 
         <button class="btn btn--brasa" type="submit">Enviar</button>
-        <p class="nota" data-ph>[Formulário a conectar: vai precisar de Formspree, Web3Forms ou similar para enviar.]</p>
+        <p class="nota formulario__status" role="status"></p>
       </form>
     </div>
   </div>
@@ -105,19 +121,19 @@
         <p class="cartao__numero">Sede</p>
         <h3>Santa Teresa</h3>
         <p>Av. Luís Müller, 144 — Centro<br>Santa Teresa, ES</p>
-        <a class="btn btn--contorno" href="https://www.google.com/maps/search/?api=1&query=Av.+Luis+Muller,+144,+Centro,+Santa+Teresa+-+ES" target="_blank" rel="noopener" style="margin-top:1.25rem;">Como chegar</a>
+        <a class="btn btn--contorno mt-2" href="https://www.google.com/maps/search/?api=1&query=Av.+Luis+Muller,+144,+Centro,+Santa+Teresa+-+ES" target="_blank" rel="noopener">Como chegar</a>
       </article>
       <article class="cartao" data-revelar>
         <p class="cartao__numero">Congregação</p>
         <h3>São Roque do Canaã</h3>
         <p>Av. Antônio Gil Veloso, 420<br>São Roque do Canaã, ES</p>
-        <a class="btn btn--contorno" href="https://www.google.com/maps/search/?api=1&query=Av.+Antonio+Gil+Veloso,+420,+Sao+Roque+do+Canaa+-+ES" target="_blank" rel="noopener" style="margin-top:1.25rem;">Como chegar</a>
+        <a class="btn btn--contorno mt-2" href="https://www.google.com/maps/search/?api=1&query=Av.+Antonio+Gil+Veloso,+420,+Sao+Roque+do+Canaa+-+ES" target="_blank" rel="noopener">Como chegar</a>
       </article>
       <article class="cartao" data-revelar>
         <p class="cartao__numero">Congregação</p>
         <h3>Várzea Alegre</h3>
         <p>Centro — anexo ao posto de combustível<br>Várzea Alegre, ES</p>
-        <a class="btn btn--contorno" href="https://www.google.com/maps/search/?api=1&query=Varzea+Alegre+Centro+ES" target="_blank" rel="noopener" style="margin-top:1.25rem;">Como chegar</a>
+        <a class="btn btn--contorno mt-2" href="https://www.google.com/maps/search/?api=1&query=Varzea+Alegre+Centro+ES" target="_blank" rel="noopener">Como chegar</a>
       </article>
     </div>
   </div>
@@ -125,14 +141,14 @@
 
 <section class="secao secao--noite">
   <div class="container">
-    <div data-revelar style="max-width:52ch;">
+    <div class="estreito" data-revelar>
       <p class="sobrescrito">Precisa de oração?</p>
       <h2 class="titulo">Escreve aqui.<br>Alguém ora por você<br>esta semana — <em>com nome.</em></h2>
-      <p class="subtitulo" style="margin-top:1.5rem;">
+      <p class="subtitulo mt-2">
         Pode ser pedido pequeno ou grande, de quem é da igreja ou de quem nunca
         pisou numa. E ninguém mais precisa ficar sabendo.
       </p>
-      <a class="btn btn--brasa" href="https://wa.me/5527999123456" target="_blank" rel="noopener" style="margin-top:1rem;" data-ph>Enviar pedido de oração</a>
+      <a class="btn btn--brasa mt-1" href="https://wa.me/5527999123456" target="_blank" rel="noopener">Enviar pedido de oração</a>
     </div>
   </div>
 </section>
@@ -143,13 +159,10 @@
   <div class="container">
     <div class="rodape__grade">
       <div class="rodape__logo">
-    <img class="logo-claro"  src="assets/img/logo/logo-branco.png" alt="Igreja Evangelho Pleno">
-    <img class="logo-escuro" src="assets/img/logo/logo-preto.png"  alt="Igreja Evangelho Pleno">
-        <p style="font-size:var(--t-sm);max-width:32ch;">
-          Nossa paixão é por vidas. Três congregações no Espírito Santo,
-          uma porta sempre aberta.
-        </p>
+        <img src="assets/img/logo/logo-branco-completo.png" alt="Igreja Evangelho Pleno">
+        <p class="rodape__resumo">Nossa paixão é por vidas. Três congregações no Espírito Santo, uma porta sempre aberta.</p>
       </div>
+
       <div>
         <h4>Navegar</h4>
         <ul>
@@ -160,6 +173,7 @@
           <li><a href="agenda.html">Agenda</a></li>
         </ul>
       </div>
+
       <div>
         <h4>Congregações</h4>
         <ul>
@@ -169,27 +183,25 @@
           <li><a href="agenda.html">Ver horários</a></li>
         </ul>
       </div>
+
       <div>
         <h4>Contato</h4>
         <ul>
           <li><a href="contato.html">Pedido de oração</a></li>
           <li><a href="contribua.html">Contribua</a></li>
-          <li data-ph>[WHATSAPP A DEFINIR]</li>
-          <li data-ph>[INSTAGRAM A DEFINIR]</li>
+          <li><a href="https://wa.me/5527999123456" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li>[INSTAGRAM A DEFINIR]</li>
         </ul>
       </div>
     </div>
+
     <div class="rodape__base">
-      <p style="margin:0;">© 2026 Igreja Evangelho Pleno</p>
-      <p style="margin:0;">Uma só missão · Uma só visão · Uma só paixão</p>
+      <p>© 2026 Igreja Evangelho Pleno</p>
+      <p>Uma só missão · Uma só visão · Uma só paixão</p>
     </div>
   </div>
 </footer>
 
-<button class="barra-ph" type="button">
-  <span class="barra-ph__ponto"></span>
-  <span data-ph-texto>Ver placeholders</span>
-</button>
 
 <script src="assets/js/main.js"></script>
 </body>

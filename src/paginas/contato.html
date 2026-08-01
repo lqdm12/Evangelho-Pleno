@@ -1,0 +1,105 @@
+<section class="capa">
+  <div class="container capa__conteudo">
+    <p class="sobrescrito">Contato</p>
+    <h1 class="titulo">Manda um oi.<br>A gente<br><em>responde.</em></h1>
+    <p class="subtitulo mt-2">
+      Pedido de oração, dúvida de primeira visita ou só vontade de conversar.
+      É só escrever.
+    </p>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="container duas-colunas">
+    <div data-revelar>
+      <p class="sobrescrito">Escreva pra gente</p>
+      <h2 class="titulo">Ou digite,<br>do seu jeito.</h2>
+      <p class="subtitulo mt-2">
+        A gente lê tudo com calma e alguém responde — do outro lado tem gente,
+        não robô.
+      </p>
+      <a class="btn btn--contorno mt-1" href="https://wa.me/{{whatsapp}}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+
+    <div data-revelar>
+      <form class="formulario" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="{{form_chave}}">
+        <input type="hidden" name="subject" value="Novo contato do site — Igreja Evangelho Pleno">
+        <input type="hidden" name="from_name" value="Site Evangelho Pleno">
+
+        <div class="campo">
+          <label for="nome">Seu nome</label>
+          <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como podemos te chamar?" required>
+        </div>
+
+        <div class="campo">
+          <label for="contato">WhatsApp ou e-mail</label>
+          <input id="contato" name="contato" type="text" autocomplete="email" placeholder="Pra gente conseguir responder" required>
+        </div>
+
+        <div class="campo">
+          <label for="motivo">Assunto</label>
+          <select id="motivo" name="motivo" required>
+            <option>Pedido de oração</option>
+            <option>Primeira visita</option>
+            <option>Quero servir</option>
+            <option>Dúvida</option>
+            <option>Outro</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Escreve sem cerimônia. Ninguém aqui morde." required></textarea>
+        </div>
+
+        <button class="btn btn--brasa" type="submit">Enviar</button>
+        <p class="nota formulario__status" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="secao secao--areia">
+  <div class="container">
+    <div data-revelar>
+      <p class="sobrescrito">As três casas</p>
+      <h2 class="titulo">Pode chegar<br>em qualquer uma.</h2>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao" data-revelar>
+        <p class="cartao__numero">Sede</p>
+        <h3>Santa Teresa</h3>
+        <p>Av. Luís Müller, 144 — Centro<br>Santa Teresa, ES</p>
+        <a class="btn btn--contorno mt-2" href="https://www.google.com/maps/search/?api=1&query=Av.+Luis+Muller,+144,+Centro,+Santa+Teresa+-+ES" target="_blank" rel="noopener">Como chegar</a>
+      </article>
+      <article class="cartao" data-revelar>
+        <p class="cartao__numero">Congregação</p>
+        <h3>São Roque do Canaã</h3>
+        <p>Av. Antônio Gil Veloso, 420<br>São Roque do Canaã, ES</p>
+        <a class="btn btn--contorno mt-2" href="https://www.google.com/maps/search/?api=1&query=Av.+Antonio+Gil+Veloso,+420,+Sao+Roque+do+Canaa+-+ES" target="_blank" rel="noopener">Como chegar</a>
+      </article>
+      <article class="cartao" data-revelar>
+        <p class="cartao__numero">Congregação</p>
+        <h3>Várzea Alegre</h3>
+        <p>Centro — anexo ao posto de combustível<br>Várzea Alegre, ES</p>
+        <a class="btn btn--contorno mt-2" href="https://www.google.com/maps/search/?api=1&query=Varzea+Alegre+Centro+ES" target="_blank" rel="noopener">Como chegar</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="secao secao--noite">
+  <div class="container">
+    <div class="estreito" data-revelar>
+      <p class="sobrescrito">Precisa de oração?</p>
+      <h2 class="titulo">Escreve aqui.<br>Alguém ora por você<br>esta semana — <em>com nome.</em></h2>
+      <p class="subtitulo mt-2">
+        Pode ser pedido pequeno ou grande, de quem é da igreja ou de quem nunca
+        pisou numa. E ninguém mais precisa ficar sabendo.
+      </p>
+      <a class="btn btn--brasa mt-1" href="https://wa.me/{{whatsapp}}" target="_blank" rel="noopener">Enviar pedido de oração</a>
+    </div>
+  </div>
+</section>

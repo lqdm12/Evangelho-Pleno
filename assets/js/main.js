@@ -168,9 +168,16 @@ function montarHorarios() {
    Cabeçalho, menu, revelação e modo placeholder
    -------------------------------------------------------------------------- */
 function ligarCabecalho() {
-  const botao = document.querySelector('.hamburguer');
-  const nav   = document.querySelector('.nav');
-  if (!botao || !nav) return;
+  const cabecalho = document.querySelector('.cabecalho');
+  const botao     = document.querySelector('.hamburguer');
+  const nav       = document.querySelector('.nav');
+  if (!cabecalho) return;
+
+  const aoRolar = () => {
+    cabecalho.classList.toggle('cabecalho--fixo', window.scrollY > 40);
+  };
+  aoRolar();
+  window.addEventListener('scroll', aoRolar, { passive: true });
 
   botao.addEventListener('click', () => {
     const aberto = botao.getAttribute('aria-expanded') === 'true';
